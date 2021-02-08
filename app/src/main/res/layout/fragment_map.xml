@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/motion_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_map_scene"
+        tools:context=".ui.map.MapFragment">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_margin="24dp"
+            android:elevation="32dp"
+            android:translationZ="16dp"
+            app:cardCornerRadius="13dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edit_text"
+                android:clickable="true"
+                android:focusable="true"
+                app:searchIcon="@drawable/ic_search" />
+
+            <TextView
+                android:id="@+id/tv_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="50dp"
+                android:text="Поиск"
+                android:textSize="17sp"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/iv_microfon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="18dp"
+                android:contentDescription="@string/image"
+                android:src="@drawable/ic_microfon" />
+        </androidx.cardview.widget.CardView>
+
+        <com.yandex.mapkit.mapview.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/iv_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="89dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_marker"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="80dp"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_navigator"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/place_info"
+            layout="@layout/place_info"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
